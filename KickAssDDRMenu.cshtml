@@ -1,0 +1,53 @@
+@using DotNetNuke.Web.DDRMenu;
+@using System.Dynamic; 
+@inherits DotNetNuke.Web.Razor.DotNetNukeWebPage<dynamic>
+
+@{
+	var root = Model.Source.root;
+}
+
+
+@helper RenderNodes(IList<MenuNode> nodes) {
+	if (nodes.Count > 0) {
+	
+		var menuBlockPrefix = ( Model.useBEM == "true") ? Model.menuClass+"__" : "";
+		var itemModifier = ( Model.useBEM == "true") ? Model.itemClass+"--" : "";
+		var menuClass = ( nodes[0].Depth == 0) ? Model.menuClass : Model.subClass;
+
+		<ul class="@menuClass @(Model.depthClass + nodes[0].Depth)">
+		 	@{int i = 1;}
+			@foreach (var node in nodes) {
+				
+				var cssClasses = new List<string>();
+				cssClasses.Add( menuBlockPrefix+Model.itemClass );
+				
+				cssClasses.Add( menuBlockPrefix + itemModifier + Model.pageidClassPrefix + node.TabId );
+				
+				if (Model.numClassPrefix != ""){ cssClasses.Add( menuBlockPrefix + itemModifier + Model.numClassPrefix + i ); }
+				
+				if (Model.firstClass != "" && node.First) { cssClasses.Add( menuBlockPrefix + itemModifier + Model.firstClass ); }
+				if (Model.lastClass != "" && node.Last) { cssClasses.Add( menuBlockPrefix + itemModifier + Model.lastClass ); }
+				if (Model.selectedClass != "" && node.Selected) { cssClasses.Add( menuBlockPrefix + itemModifier + Model.selectedClass ); }
+				if (Model.hasChildClass != "" && node.Children.Count() > 0) { cssClasses.Add( menuBlockPrefix + itemModifier + Model.hasChildClass ); }
+				if (Model.disabledClass != "" && !node.Enabled) { cssClasses.Add( menuBlockPrefix + itemModifier + Model.disabledClass ); }
+				
+				var classString = new HtmlString((cssClasses.Count == 0) ? "" : (" class=\"" + String.Join(" ", cssClasses.ToArray()) + "\""));
+
+				<li @classString>
+					@if (node.Enabled) {
+						<a class="@(menuBlockPrefix+Model.linkClass)" href="@node.Url">@node.Text</a>
+					} else {
+						@node.Text
+					}
+					@RenderNodes(node.Children)
+				</li>
+				i++;
+			}
+		</ul>
+	}
+}
+
+@if ( Model.isMobile == "true" ){
+	<button>@Model.mobileButtonText</button>
+}
+@RenderNodes(root.Children)

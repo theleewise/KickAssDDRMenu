@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<manifest>
+	
+	<template>[MANIFEST]/KickAssDDRMenu.cshtml</template>
+	
+	<defaultClientOptions>
+				
+	</defaultClientOptions>
+	
+	<defaultTemplateArguments>
+		<templateArgument type="boolean"		name="useBEM"					value="true" />
+		<templateArgument type="boolean"		name="isMobile"					value="false" />
+		<!-- <templateArgument type="boolean"		name="showIcon"					value="false" /> -->
+		<!-- <templateArgument type="boolean"		name="showDesc"					value="false" /> -->
+		<!-- <templateArgument type="boolean"		name="showKeywords"				value="false" /> -->
+		<!-- <templateArgument type="boolean"		name="showSubIndicator"			value="false" /> -->
+
+		<!-- <templateArgument type="string"			name="mobile-seperate-button-selector"		value="" /> -->
+		<templateArgument type="string"			name="mobileButtonText"		value="Menu" />
+		
+		<templateArgument type="string"			name="menuClass"				value="site-nav" />
+		<!-- <templateArgument type="string"			name="menuId"					value=""	 /> -->
+
+		<!-- <templateArgument type="string"			name="root-class"				value="root" /> -->
+		<templateArgument type="string"			name="itemClass"				value="item" />
+		<templateArgument type="string"			name="firstClass"				value="first" />
+		<templateArgument type="string"			name="lastClass"				value="last" />
+		<templateArgument type="string"			name="onlyClass"				value="only" />
+		<templateArgument type="string"			name="selectedClass"			value="selected" />
+		<templateArgument type="string"			name="hasChildClass"			value="has-child" />
+		<templateArgument type="string"			name="numClassPrefix"			value="num-" />
+		<templateArgument type="string"			name="pageidClassPrefix"		value="page-" />
+		<templateArgument type="string"			name="disabledClass"			value="disabled" />
+		<!-- <templateArgument type="string"			name="iconClass"				value="icon" /> -->
+		<!-- <templateArgument type="string"			name="textClass"				value="text" /> -->
+		<templateArgument type="string"			name="linkClass"				value="link" />
+		<!-- <templateArgument type="string"			name="descClass"				value="desc" /> -->
+		<!-- <templateArgument type="string"			name="keywordsClass"			value="keywords" /> -->
+		<templateArgument type="string"			name="subClass"					value="sub" />
+		<templateArgument type="string"			name="depthClass"				value="depth-" />
+
+		<!-- <templateArgument type="string"			name="mobileButtonName"			value="-button" /> -->
+		<!-- <templateArgument type="string"			name="mobileSubToggleSel"		value="toggle" /> -->
+		<!-- <templateArgument type="string"			name="mobileSubToggleClass"		value="toggle" /> -->
+		<!-- <templateArgument type="string"			name="mobileSubToggleText"		value=">" /> -->
+		
+		<!-- <templateArgument type="boolean"		name="subIndicatorClass"		value="indicator" /> -->
+		
+		<!-- <templateArgument type="string"			name="disabledSelected"			value="true" /> -->
+		<!-- <templateArgument type="string"			name="bcClass"					value="bc" /> -->
+		
+
+	</defaultTemplateArguments>
+	
+</manifest>
