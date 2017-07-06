@@ -1,1 +1,1 @@
-# KickAssDDRMenu
+# SimpleDDRMenu
